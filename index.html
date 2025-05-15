@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Club Deportivo Cima de Almería</title>
+    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <img src="./img/cima_logo.png" alt="Logo Cima de Almería" class="logo">
+            <h1>Club Deportivo Cima de Almería</h1>
+        </div>
+        <nav>
+            <ul class="menu">
+                <li><a href="#inicio"><h3>Inicio</h3></a></li>
+                <li><a href="#actividades"><h3>Actividades</h3></a></li>
+                <li><a href="#instalaciones"><h3>Instalaciones</h3></a></li>
+                <li><a href="#horarios"><h3>Horarios</h3></a></li>
+                <li><a href="#contacto"><h3>Contacto</h3></a></li>
+            </ul>
+            <div class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+    </header>
+
+    <section id="inicio" class="hero">
+        <div class="hero-content">
+            <h2>Bienvenidos al Club Deportivo Cima de Almería</h2>
+            <p>Tu espacio para el deporte, la salud y el bienestar en Almería</p>
+            <a href="#contacto" class="btn">Únete ahora</a>
+        </div>
+    </section>
+
+    <section id="actividades" class="actividades">
+        <h2 class="section-title">Nuestras Actividades</h2>
+        <div class="actividades-grid">
+            <div class="actividad-card">
+                <img src="./img/kayak.png" alt="Fútbol" class="actividad-img">
+                <h3>Fútbol</h3>
+                <p>Equipos para todas las edades y niveles. Entrenamiento profesional y competiciones regulares.</p>
+            </div>
+            <div class="actividad-card">
+                <img src="./img/kayak.png" alt="Baloncesto" class="actividad-img">
+                <h3>Baloncesto</h3>
+                <p>Mejora tu técnica y disfruta del espíritu de equipo con nuestros entrenadores especializados.</p>
+            </div>
+            <div class="actividad-card">
+                <img src="./img/kayak.png" alt="Natación" class="actividad-img">
+                <h3>Natación</h3>
+                <p>Clases para todas las edades en nuestra piscina olímpica climatizada.</p>
+            </div>
+            <div class="actividad-card">
+                <img src="./img/kayak.png" alt="Tenis" class="actividad-img">
+                <h3>Tenis</h3>
+                <p>Pistas de tenis de alta calidad con clases individuales y grupales.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="instalaciones" class="instalaciones">
+        <h2 class="section-title">Nuestras Instalaciones</h2>
+        <div class="slider-container">
+            <div class="slider">
+                <div class="slide">
+                    <img src="./img/kayak.png" alt="Campo de fútbol">
+                    <div class="slide-caption">Campo de fútbol profesional</div>
+                </div>
+                <div class="slide">
+                    <img src="./img/kayak.png" alt="Piscina">
+                    <div class="slide-caption">Piscina olímpica climatizada</div>
+                </div>
+                <div class="slide">
+                    <img src="./img/kayak.png" alt="Pistas de tenis">
+                    <div class="slide-caption">Pistas de tenis reglamentarias</div>
+                </div>
+                <div class="slide">
+                    <img src="./img/kayak.png" alt="Gimnasio">
+                    <div class="slide-caption">Gimnasio completamente equipado</div>
+                </div>
+            </div>
+            <button class="slider-arrow prev-arrow"><i class="fas fa-chevron-left"></i></button>
+            <button class="slider-arrow next-arrow"><i class="fas fa-chevron-right"></i></button>
+        </div>
+    </section>
+    
+    <section id="horarios" class="horarios">
+        <h2 class="section-title">Horarios</h2>
+        <div class="horarios-container">
+            <div class="horario-tabs">
+                <button class="tab-button active" data-target="futbol">Fútbol</button>
+                <button class="tab-button" data-target="baloncesto">Baloncesto</button>
+                <button class="tab-button" data-target="natacion">Natación</button>
+                <button class="tab-button" data-target="tenis">Tenis</button>
+            </div>
+            <div class="horario-content">
+                <div id="futbol" class="tab-content active">
+                    <h3>Horarios de Fútbol</h3>
+                    <table class="horario-table">
+                        <tr>
+                            <th>Día</th>
+                            <th>Infantil</th>
+                            <th>Juvenil</th>
+                            <th>Adultos</th>
+                        </tr>
+                        <tr>
+                            <td>Lunes - Viernes</td>
+                            <td>17:00 - 19:00</td>
+                            <td>19:00 - 21:00</td>
+                            <td>21:00 - 23:00</td>
+                        </tr>
+                        <tr>
+                            <td>Sábado</td>
+                            <td>10:00 - 12:00</td>
+                            <td>12:00 - 14:00</td>
+                            <td>16:00 - 18:00</td>
+                        </tr>
+                        <tr>
+                            <td>Domingo</td>
+                            <td>Partidos</td>
+                            <td>Partidos</td>
+                            <td>Partidos</td>
+                        </tr>
+                    </table>
+                </div>
+                <div id="baloncesto" class="tab-content">
+                    <h3>Horarios de Baloncesto</h3>
+                    <table class="horario-table">
+                        <tr>
+                            <th>Día</th>
+                            <th>Infantil</th>
+                            <th>Juvenil</th>
+                            <th>Adultos</th>
+                        </tr>
+                        <tr>
+                            <td>Lunes - Jueves</td>
+                            <td>16:00 - 18:00</td>
+                            <td>18:00 - 20:00</td>
+                            <td>20:00 - 22:00</td>
+                        </tr>
+                        <tr>
+                            <td>Viernes</td>
+                            <td>16:00 - 18:00</td>
+                            <td>18:00 - 20:00</td>
+                            <td>Libre</td>
+                        </tr>
+                        <tr>
+                            <td>Sábado</td>
+                            <td colspan="3">Competiciones</td>
+                        </tr>
+                    </table>
+                </div>
+                <div id="natacion" class="tab-content">
+                    <h3>Horarios de Natación</h3>
+                    <table class="horario-table">
+                        <tr>
+                            <th>Día</th>
+                            <th>Mañana</th>
+                            <th>Tarde</th>
+                        </tr>
+                        <tr>
+                            <td>Lunes - Viernes</td>
+                            <td>07:00 - 14:00</td>
+                            <td>16:00 - 22:00</td>
+                        </tr>
+                        <tr>
+                            <td>Sábado</td>
+                            <td>09:00 - 14:00</td>
+                            <td>Cerrado</td>
+                        </tr>
+                        <tr>
+                            <td>Domingo</td>
+                            <td>10:00 - 13:00</td>
+                            <td>Cerrado</td>
+                        </tr>
+                    </table>
+                </div>
+                <div id="tenis" class="tab-content">
+                    <h3>Horarios de Tenis</h3>
+                    <table class="horario-table">
+                        <tr>
+                            <th>Día</th>
+                            <th>Pista 1</th>
+                            <th>Pista 2</th>
+                            <th>Pista 3</th>
+                        </tr>
+                        <tr>
+                            <td>Lunes - Viernes</td>
+                            <td>09:00 - 22:00</td>
+                            <td>09:00 - 22:00</td>
+                            <td>09:00 - 22:00</td>
+                        </tr>
+                        <tr>
+                            <td>Sábado - Domingo</td>
+                            <td>10:00 - 20:00</td>
+                            <td>10:00 - 20:00</td>
+                            <td>10:00 - 20:00</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contacto" class="contacto">
+        <h2 class="section-title">Contacto</h2>
+        <div class="contacto-container">
+            <div class="contacto-info">
+                <h3>Información de Contacto</h3>
+                <p><i class="fas fa-map-marker-alt"></i> Calle Deportista 123, Almería, España</p>
+                <p><i class="fas fa-phone"></i> +34 950 123 456</p>
+                <p><i class="fas fa-envelope"></i> info@cimadealmeria.es</p>
+                <div class="redes-sociales">
+                    <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="contacto-form">
+                <h3>Envíanos un mensaje</h3>
+                <form id="contact-form">
+                    <div class="form-group">
+                        <label for="nombre"><b>Nombre</b></label>
+                        <input type="text" id="nombre" name="nombre" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email"><b>Email</b></label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="telefono"><b>Teléfono</b></label>
+                        <input type="tel" id="telefono" name="telefono">
+                    </div>
+                    <div class="form-group">
+                        <label for="mensaje"><b>Mensaje</b></label>
+                        <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn2">Enviar Mensaje</button>
+                </form>
+                <div id="form-message" class="form-message"></div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="./img/cima_logo.png" alt="Logo Cima de Almería" class="logo">
+                <h3>Club Deportivo Cima de Almería</h3>
+            </div>
+            <div class="footer-links">
+                <h4>Enlaces rápidos</h4>
+                <ul>
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#actividades">Actividades</a></li>
+                    <li><a href="#instalaciones">Instalaciones</a></li>
+                    <li><a href="#horarios">Horarios</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </div>
+            <div class="footer-newsletter">
+                <h4>Suscríbete a nuestra newsletter</h4>
+                <form id="newsletter-form">
+                    <input type="email" placeholder="Tu email" required>
+                    <button type="submit"><b>Suscribirse</b></button>
+                </form>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Club Deportivo Cima de Almería. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="./js/main.js"></script>
+</body>
+</html>
