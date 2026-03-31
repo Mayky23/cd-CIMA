@@ -31,6 +31,7 @@ function closeMenu() {
     }
 
     menu.classList.remove('is-open');
+    document.body.classList.remove('menu-open');
     menuToggle.setAttribute('aria-expanded', 'false');
     const icon = menuToggle.querySelector('i');
     if (icon) {
@@ -46,6 +47,7 @@ function initMobileMenu() {
 
     menuToggle.addEventListener('click', () => {
         const isOpen = menu.classList.toggle('is-open');
+        document.body.classList.toggle('menu-open', isOpen);
         menuToggle.setAttribute('aria-expanded', String(isOpen));
         const icon = menuToggle.querySelector('i');
         if (icon) {
@@ -56,6 +58,18 @@ function initMobileMenu() {
 
     menu.querySelectorAll('a').forEach((link) => {
         link.addEventListener('click', closeMenu);
+    });
+
+    document.addEventListener('click', (event) => {
+        if (!menu.classList.contains('is-open')) {
+            return;
+        }
+
+        if (menu.contains(event.target) || menuToggle.contains(event.target)) {
+            return;
+        }
+
+        closeMenu();
     });
 }
 
