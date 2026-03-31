@@ -1,271 +1,235 @@
-
-// Script para el Club Deportivo Cima de Almería
-
-// Variables globales
-let currentSlide = 0;
+const header = document.querySelector('.site-header');
+const menuToggle = document.querySelector('.menu-toggle');
+const menu = document.querySelector('.menu');
+const tabButtons = document.querySelectorAll('.tab-button');
+const tabContents = document.querySelectorAll('.tab-content');
+const slider = document.querySelector('.slider');
 const slides = document.querySelectorAll('.slide');
-const totalSlides = slides.length;
+const prevArrow = document.querySelector('.prev-arrow');
+const nextArrow = document.querySelector('.next-arrow');
+const revealElements = document.querySelectorAll('[data-reveal]');
+const contactForm = document.getElementById('contact-form');
+const contactMessage = document.getElementById('form-message');
+const newsletterForm = document.getElementById('newsletter-form');
 
-// Función que se ejecuta cuando el DOM está completamente cargado
-document.addEventListener('DOMContentLoaded', function() {
-    // Navegación móvil
-    initMobileMenu();
-    
-    // Slider de instalaciones
-    initSlider();
-    
-    // Pestañas de horarios
-    initTabs();
-    
-    // Formulario de contacto
-    initContactForm();
-    
-    // Formulario de newsletter
-    initNewsletterForm();
-    
-    // Animaciones al hacer scroll
-    initScrollAnimations();
-});
+let currentSlide = 0;
+let sliderInterval;
+let touchStartX = 0;
+let touchDeltaX = 0;
 
-// Inicializar menú móvil
+function setHeaderState() {
+    if (!header) {
+        return;
+    }
+
+    header.classList.toggle('is-scrolled', window.scrollY > 24);
+}
+
+function closeMenu() {
+    if (!menu || !menuToggle) {
+        return;
+    }
+
+    menu.classList.remove('is-open');
+    menuToggle.setAttribute('aria-expanded', 'false');
+    const icon = menuToggle.querySelector('i');
+    if (icon) {
+        icon.classList.remove('fa-xmark');
+        icon.classList.add('fa-bars');
+    }
+}
+
 function initMobileMenu() {
-    const menuToggle = document.querySelector('.menu-toggle');
-    const menu = document.querySelector('.menu');
-    
-    menuToggle.addEventListener('click', function() {
-        menu.classList.toggle('active');
-        
-        // Cambiar el icono del menú
+    if (!menuToggle || !menu) {
+        return;
+    }
+
+    menuToggle.addEventListener('click', () => {
+        const isOpen = menu.classList.toggle('is-open');
+        menuToggle.setAttribute('aria-expanded', String(isOpen));
         const icon = menuToggle.querySelector('i');
-        if (menu.classList.contains('active')) {
-            icon.classList.remove('fa-bars');
-            icon.classList.add('fa-times');
-        } else {
-            icon.classList.remove('fa-times');
-            icon.classList.add('fa-bars');
+        if (icon) {
+            icon.classList.toggle('fa-bars', !isOpen);
+            icon.classList.toggle('fa-xmark', isOpen);
         }
     });
-    
-    // Cerrar menú al hacer clic en un enlace
-    const menuLinks = document.querySelectorAll('.menu a');
-    menuLinks.forEach(link => {
-        link.addEventListener('click', function() {
-            menu.classList.remove('active');
-            const icon = menuToggle.querySelector('i');
-            icon.classList.remove('fa-times');
-            icon.classList.add('fa-bars');
-        });
+
+    menu.querySelectorAll('a').forEach((link) => {
+        link.addEventListener('click', closeMenu);
     });
 }
 
-// Inicializar slider de instalaciones
-function initSlider() {
-    const prevArrow = document.querySelector('.prev-arrow');
-    const nextArrow = document.querySelector('.next-arrow');
-    const slider = document.querySelector('.slider');
-    
-    // Mostrar primera diapositiva
-    showSlide(currentSlide);
-    
-    // Eventos para flechas de navegación
-    if (prevArrow && nextArrow) {
-        prevArrow.addEventListener('click', prevSlide);
-        nextArrow.addEventListener('click', nextSlide);
-    }
-    
-    // Iniciar autoplay
-    let slideInterval = setInterval(nextSlide, 5000);
-    
-    // Pausar autoplay al pasar el mouse sobre el slider
-    if (slider) {
-        slider.addEventListener('mouseenter', function() {
-            clearInterval(slideInterval);
-        });
-        
-        slider.addEventListener('mouseleave', function() {
-            slideInterval = setInterval(nextSlide, 5000);
-        });
-    }
+function switchTab(targetId) {
+    tabButtons.forEach((button) => {
+        button.classList.toggle('active', button.dataset.target === targetId);
+    });
+
+    tabContents.forEach((content) => {
+        content.classList.toggle('active', content.id === targetId);
+    });
 }
 
-// Mostrar diapositiva específica
-function showSlide(n) {
-    if (!slides.length) return;
-    
-    const slider = document.querySelector('.slider');
-    if (!slider) return;
-    
-    currentSlide = (n + totalSlides) % totalSlides;
+function initTabs() {
+    tabButtons.forEach((button) => {
+        button.addEventListener('click', () => switchTab(button.dataset.target));
+    });
+}
+
+function showSlide(index) {
+    if (!slider || slides.length === 0) {
+        return;
+    }
+
+    currentSlide = (index + slides.length) % slides.length;
     slider.style.transform = `translateX(-${currentSlide * 100}%)`;
 }
 
-// Avanzar a la siguiente diapositiva
-function nextSlide() {
-    showSlide(currentSlide + 1);
+function startSlider() {
+    if (slides.length < 2) {
+        return;
+    }
+
+    clearInterval(sliderInterval);
+    sliderInterval = window.setInterval(() => showSlide(currentSlide + 1), 5500);
 }
 
-// Retroceder a la diapositiva anterior
-function prevSlide() {
-    showSlide(currentSlide - 1);
-}
+function initSlider() {
+    if (!slider || slides.length === 0) {
+        return;
+    }
 
-// Inicializar pestañas de horarios
-function initTabs() {
-    const tabButtons = document.querySelectorAll('.tab-button');
-    
-    tabButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            // Eliminar clase active de todos los botones y contenidos
-            document.querySelectorAll('.tab-button').forEach(btn => {
-                btn.classList.remove('active');
-            });
-            
-            document.querySelectorAll('.tab-content').forEach(content => {
-                content.classList.remove('active');
-            });
-            
-            // Añadir clase active al botón clickeado
-            this.classList.add('active');
-            
-            // Mostrar contenido correspondiente
-            const targetId = this.getAttribute('data-target');
-            const targetContent = document.getElementById(targetId);
-            if (targetContent) {
-                targetContent.classList.add('active');
-            }
-        });
+    showSlide(0);
+    startSlider();
+
+    prevArrow?.addEventListener('click', () => {
+        showSlide(currentSlide - 1);
+        startSlider();
     });
-}
 
-// Inicializar formulario de contacto
-function initContactForm() {
-    const contactForm = document.getElementById('contact-form');
-    const formMessage = document.getElementById('form-message');
-    
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Obtener valores del formulario
-            const nombre = document.getElementById('nombre').value;
-            const email = document.getElementById('email').value;
-            const telefono = document.getElementById('telefono').value;
-            const mensaje = document.getElementById('mensaje').value;
-            
-            // Aquí normalmente enviarías los datos a un servidor
-            // Para esta demo, simulamos una respuesta exitosa
-            
-            // Simular envío
-            formMessage.innerHTML = 'Enviando mensaje...';
-            formMessage.className = 'form-message';
-            
-            // Simular respuesta del servidor después de 2 segundos
-            setTimeout(function() {
-                formMessage.innerHTML = `¡Gracias ${nombre}! Tu mensaje ha sido enviado correctamente. Nos pondremos en contacto contigo pronto.`;
-                formMessage.className = 'form-message success';
-                contactForm.reset();
-            }, 2000);
-        });
-    }
-}
-
-// Inicializar formulario de newsletter
-function initNewsletterForm() {
-    const newsletterForm = document.getElementById('newsletter-form');
-    
-    if (newsletterForm) {
-        newsletterForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const emailInput = this.querySelector('input[type="email"]');
-            const email = emailInput.value;
-            
-            // Simular suscripción
-            alert(`¡Gracias por suscribirte a nuestra newsletter con el email: ${email}!`);
-            newsletterForm.reset();
-        });
-    }
-}
-
-// Inicializar animaciones al hacer scroll
-function initScrollAnimations() {
-    // Detectar elementos que deben animarse al hacer scroll
-    const elementsToAnimate = document.querySelectorAll('.actividad-card, .section-title, .contacto-info, .contacto-form');
-    
-    // Función para comprobar si un elemento está en el viewport
-    function isInViewport(element) {
-        const rect = element.getBoundingClientRect();
-        return (
-            rect.top <= (window.innerHeight || document.documentElement.clientHeight) * 0.8 &&
-            rect.bottom >= 0
-        );
-    }
-    
-    // Función para animar elementos visibles
-    function animateVisibleElements() {
-        elementsToAnimate.forEach(element => {
-            if (isInViewport(element) && !element.classList.contains('animated')) {
-                element.classList.add('animated');
-                element.style.opacity = '1';
-                element.style.transform = 'translateY(0)';
-            }
-        });
-    }
-    
-    // Configurar estilo inicial para elementos a animar
-    elementsToAnimate.forEach(element => {
-        element.style.opacity = '0';
-        element.style.transform = 'translateY(20px)';
-        element.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+    nextArrow?.addEventListener('click', () => {
+        showSlide(currentSlide + 1);
+        startSlider();
     });
-    
-    // Ejecutar la animación al cargar la página y al hacer scroll
-    animateVisibleElements();
-    window.addEventListener('scroll', animateVisibleElements);
+
+    slider.addEventListener('mouseenter', () => clearInterval(sliderInterval));
+    slider.addEventListener('mouseleave', startSlider);
+    slider.addEventListener('touchstart', handleTouchStart, { passive: true });
+    slider.addEventListener('touchmove', handleTouchMove, { passive: true });
+    slider.addEventListener('touchend', handleTouchEnd);
 }
 
-// Función para validar formulario de contacto
-function validateForm(formId) {
-    const form = document.getElementById(formId);
-    if (!form) return true;
-    
-    let isValid = true;
-    const inputs = form.querySelectorAll('input, textarea');
-    
-    inputs.forEach(input => {
-        if (input.hasAttribute('required') && !input.value.trim()) {
-            input.style.borderColor = 'red';
-            isValid = false;
-        } else if (input.type === 'email' && input.value && !validateEmail(input.value)) {
-            input.style.borderColor = 'red';
-            isValid = false;
-        } else {
-            input.style.borderColor = '';
+function handleTouchStart(event) {
+    touchStartX = event.changedTouches[0]?.clientX || 0;
+    touchDeltaX = 0;
+    clearInterval(sliderInterval);
+}
+
+function handleTouchMove(event) {
+    const currentX = event.changedTouches[0]?.clientX || 0;
+    touchDeltaX = currentX - touchStartX;
+}
+
+function handleTouchEnd() {
+    if (Math.abs(touchDeltaX) > 45) {
+        showSlide(touchDeltaX < 0 ? currentSlide + 1 : currentSlide - 1);
+    }
+
+    startSlider();
+}
+
+function initReveal() {
+    if (!('IntersectionObserver' in window)) {
+        revealElements.forEach((element) => element.classList.add('is-visible'));
+        return;
+    }
+
+    const observer = new IntersectionObserver(
+        (entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        },
+        {
+            threshold: 0.2,
         }
-    });
-    
-    return isValid;
+    );
+
+    revealElements.forEach((element) => observer.observe(element));
 }
 
-// Función para validar email
-function validateEmail(email) {
-    const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    return re.test(String(email).toLowerCase());
-}
+function initSmoothScroll() {
+    document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener('click', (event) => {
+            const targetId = anchor.getAttribute('href');
+            const target = targetId ? document.querySelector(targetId) : null;
 
-// Función para suavizar el scroll hacia las secciones
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        
-        const targetId = this.getAttribute('href');
-        const targetElement = document.querySelector(targetId);
-        
-        if (targetElement) {
+            if (!target) {
+                return;
+            }
+
+            event.preventDefault();
+            const offset = header ? header.offsetHeight + 12 : 0;
+            const top = target.getBoundingClientRect().top + window.scrollY - offset;
+
             window.scrollTo({
-                top: targetElement.offsetTop - 80, // Ajustar por la altura del header
-                behavior: 'smooth'
+                top,
+                behavior: 'smooth',
             });
-        }
+        });
     });
+}
+
+function initContactForm() {
+    if (!contactForm || !contactMessage) {
+        return;
+    }
+
+    contactForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+
+        const formData = new FormData(contactForm);
+        const nombre = formData.get('nombre')?.toString().trim() || 'Gracias';
+        const programa = contactForm.querySelector('#programa')?.selectedOptions?.[0]?.textContent || 'el programa elegido';
+
+        contactMessage.textContent = `Solicitud enviada. ${nombre}, te responderemos pronto con informacion sobre ${programa.toLowerCase()}.`;
+        contactMessage.className = 'form-message success';
+        contactForm.reset();
+    });
+}
+
+function initNewsletterForm() {
+    if (!newsletterForm) {
+        return;
+    }
+
+    newsletterForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+        const button = newsletterForm.querySelector('button');
+        if (button) {
+            button.textContent = 'Suscrito';
+            button.disabled = true;
+        }
+        newsletterForm.reset();
+    });
+}
+
+window.addEventListener('scroll', setHeaderState);
+window.addEventListener('resize', () => {
+    if (window.innerWidth > 820) {
+        closeMenu();
+    }
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    setHeaderState();
+    initMobileMenu();
+    initTabs();
+    initSlider();
+    initReveal();
+    initSmoothScroll();
+    initContactForm();
+    initNewsletterForm();
 });

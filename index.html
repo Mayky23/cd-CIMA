@@ -3,275 +3,506 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Club Deportivo Cima de Almería</title>
+    <meta
+        name="description"
+        content="Club Deportivo CIMA de Almeria: escuela nautica, esqui y snowboard, campamentos urbanos y actividades deportivas en familia."
+    >
+    <title>Club Deportivo CIMA Almeria | Actividades nauticas, nieve y campamentos</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600;700;800&family=Fraunces:wght@600;700&display=swap"
+        rel="stylesheet"
+    >
     <link rel="stylesheet" href="./css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <header>
-        <div class="logo-container">
-            <img src="./img/cima_logo.png" alt="Logo Cima de Almería" class="logo">
-            <h1>Club Deportivo Cima de Almería</h1>
-        </div>
-        <nav>
-            <ul class="menu">
-                <li><a href="#inicio"><h3>Inicio</h3></a></li>
-                <li><a href="#actividades"><h3>Actividades</h3></a></li>
-                <li><a href="#instalaciones"><h3>Instalaciones</h3></a></li>
-                <li><a href="#horarios"><h3>Horarios</h3></a></li>
-                <li><a href="#contacto"><h3>Contacto</h3></a></li>
-            </ul>
-            <div class="menu-toggle">
-                <i class="fas fa-bars"></i>
-            </div>
-        </nav>
-    </header>
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="#inicio" class="brand" aria-label="Ir al inicio del Club Deportivo CIMA Almeria">
+                <img src="./img/cima_logo.png" alt="Logo del Club Deportivo CIMA Almeria" class="brand-logo">
+                <div class="brand-copy">
+                    <span class="brand-kicker">Club deportivo en Almeria</span>
+                    <strong>Club Deportivo CIMA</strong>
+                </div>
+            </a>
 
-    <section id="inicio" class="hero">
-        <div class="hero-content">
-            <h2>Bienvenidos al Club Deportivo Cima de Almería</h2>
-            <p>Tu espacio para el deporte, la salud y el bienestar en Almería</p>
-            <a href="#contacto" class="btn">Únete ahora</a>
-        </div>
-    </section>
-
-    <section id="actividades" class="actividades">
-        <h2 class="section-title">Nuestras Actividades</h2>
-        <div class="actividades-grid">
-            <div class="actividad-card">
-                <img src="./img/kayak.png" alt="Fútbol" class="actividad-img">
-                <h3>Fútbol</h3>
-                <p>Equipos para todas las edades y niveles. Entrenamiento profesional y competiciones regulares.</p>
-            </div>
-            <div class="actividad-card">
-                <img src="./img/kayak.png" alt="Baloncesto" class="actividad-img">
-                <h3>Baloncesto</h3>
-                <p>Mejora tu técnica y disfruta del espíritu de equipo con nuestros entrenadores especializados.</p>
-            </div>
-            <div class="actividad-card">
-                <img src="./img/kayak.png" alt="Natación" class="actividad-img">
-                <h3>Natación</h3>
-                <p>Clases para todas las edades en nuestra piscina olímpica climatizada.</p>
-            </div>
-            <div class="actividad-card">
-                <img src="./img/kayak.png" alt="Tenis" class="actividad-img">
-                <h3>Tenis</h3>
-                <p>Pistas de tenis de alta calidad con clases individuales y grupales.</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="instalaciones" class="instalaciones">
-        <h2 class="section-title">Nuestras Instalaciones</h2>
-        <div class="slider-container">
-            <div class="slider">
-                <div class="slide">
-                    <img src="./img/kayak.png" alt="Campo de fútbol">
-                    <div class="slide-caption">Campo de fútbol profesional</div>
-                </div>
-                <div class="slide">
-                    <img src="./img/kayak.png" alt="Piscina">
-                    <div class="slide-caption">Piscina olímpica climatizada</div>
-                </div>
-                <div class="slide">
-                    <img src="./img/kayak.png" alt="Pistas de tenis">
-                    <div class="slide-caption">Pistas de tenis reglamentarias</div>
-                </div>
-                <div class="slide">
-                    <img src="./img/kayak.png" alt="Gimnasio">
-                    <div class="slide-caption">Gimnasio completamente equipado</div>
-                </div>
-            </div>
-            <button class="slider-arrow prev-arrow"><i class="fas fa-chevron-left"></i></button>
-            <button class="slider-arrow next-arrow"><i class="fas fa-chevron-right"></i></button>
-        </div>
-    </section>
-    
-    <section id="horarios" class="horarios">
-        <h2 class="section-title">Horarios</h2>
-        <div class="horarios-container">
-            <div class="horario-tabs">
-                <button class="tab-button active" data-target="futbol">Fútbol</button>
-                <button class="tab-button" data-target="baloncesto">Baloncesto</button>
-                <button class="tab-button" data-target="natacion">Natación</button>
-                <button class="tab-button" data-target="tenis">Tenis</button>
-            </div>
-            <div class="horario-content">
-                <div id="futbol" class="tab-content active">
-                    <h3>Horarios de Fútbol</h3>
-                    <table class="horario-table">
-                        <tr>
-                            <th>Día</th>
-                            <th>Infantil</th>
-                            <th>Juvenil</th>
-                            <th>Adultos</th>
-                        </tr>
-                        <tr>
-                            <td>Lunes - Viernes</td>
-                            <td>17:00 - 19:00</td>
-                            <td>19:00 - 21:00</td>
-                            <td>21:00 - 23:00</td>
-                        </tr>
-                        <tr>
-                            <td>Sábado</td>
-                            <td>10:00 - 12:00</td>
-                            <td>12:00 - 14:00</td>
-                            <td>16:00 - 18:00</td>
-                        </tr>
-                        <tr>
-                            <td>Domingo</td>
-                            <td>Partidos</td>
-                            <td>Partidos</td>
-                            <td>Partidos</td>
-                        </tr>
-                    </table>
-                </div>
-                <div id="baloncesto" class="tab-content">
-                    <h3>Horarios de Baloncesto</h3>
-                    <table class="horario-table">
-                        <tr>
-                            <th>Día</th>
-                            <th>Infantil</th>
-                            <th>Juvenil</th>
-                            <th>Adultos</th>
-                        </tr>
-                        <tr>
-                            <td>Lunes - Jueves</td>
-                            <td>16:00 - 18:00</td>
-                            <td>18:00 - 20:00</td>
-                            <td>20:00 - 22:00</td>
-                        </tr>
-                        <tr>
-                            <td>Viernes</td>
-                            <td>16:00 - 18:00</td>
-                            <td>18:00 - 20:00</td>
-                            <td>Libre</td>
-                        </tr>
-                        <tr>
-                            <td>Sábado</td>
-                            <td colspan="3">Competiciones</td>
-                        </tr>
-                    </table>
-                </div>
-                <div id="natacion" class="tab-content">
-                    <h3>Horarios de Natación</h3>
-                    <table class="horario-table">
-                        <tr>
-                            <th>Día</th>
-                            <th>Mañana</th>
-                            <th>Tarde</th>
-                        </tr>
-                        <tr>
-                            <td>Lunes - Viernes</td>
-                            <td>07:00 - 14:00</td>
-                            <td>16:00 - 22:00</td>
-                        </tr>
-                        <tr>
-                            <td>Sábado</td>
-                            <td>09:00 - 14:00</td>
-                            <td>Cerrado</td>
-                        </tr>
-                        <tr>
-                            <td>Domingo</td>
-                            <td>10:00 - 13:00</td>
-                            <td>Cerrado</td>
-                        </tr>
-                    </table>
-                </div>
-                <div id="tenis" class="tab-content">
-                    <h3>Horarios de Tenis</h3>
-                    <table class="horario-table">
-                        <tr>
-                            <th>Día</th>
-                            <th>Pista 1</th>
-                            <th>Pista 2</th>
-                            <th>Pista 3</th>
-                        </tr>
-                        <tr>
-                            <td>Lunes - Viernes</td>
-                            <td>09:00 - 22:00</td>
-                            <td>09:00 - 22:00</td>
-                            <td>09:00 - 22:00</td>
-                        </tr>
-                        <tr>
-                            <td>Sábado - Domingo</td>
-                            <td>10:00 - 20:00</td>
-                            <td>10:00 - 20:00</td>
-                            <td>10:00 - 20:00</td>
-                        </tr>
-                    </table>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="contacto" class="contacto">
-        <h2 class="section-title">Contacto</h2>
-        <div class="contacto-container">
-            <div class="contacto-info">
-                <h3>Información de Contacto</h3>
-                <p><i class="fas fa-map-marker-alt"></i> Calle Deportista 123, Almería, España</p>
-                <p><i class="fas fa-phone"></i> +34 950 123 456</p>
-                <p><i class="fas fa-envelope"></i> info@cimadealmeria.es</p>
-                <div class="redes-sociales">
-                    <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
-                    <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
-                    <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
-                    <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
-                </div>
-            </div>
-            <div class="contacto-form">
-                <h3>Envíanos un mensaje</h3>
-                <form id="contact-form">
-                    <div class="form-group">
-                        <label for="nombre"><b>Nombre</b></label>
-                        <input type="text" id="nombre" name="nombre" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email"><b>Email</b></label>
-                        <input type="email" id="email" name="email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="telefono"><b>Teléfono</b></label>
-                        <input type="tel" id="telefono" name="telefono">
-                    </div>
-                    <div class="form-group">
-                        <label for="mensaje"><b>Mensaje</b></label>
-                        <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
-                    </div>
-                    <button type="submit" class="btn2">Enviar Mensaje</button>
-                </form>
-                <div id="form-message" class="form-message"></div>
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        <div class="footer-content">
-            <div class="footer-logo">
-                <img src="./img/cima_logo.png" alt="Logo Cima de Almería" class="logo">
-                <h3>Club Deportivo Cima de Almería</h3>
-            </div>
-            <div class="footer-links">
-                <h4>Enlaces rápidos</h4>
-                <ul>
+            <nav class="site-nav" aria-label="Principal">
+                <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-menu">
+                    <span>Menu</span>
+                    <i class="fas fa-bars" aria-hidden="true"></i>
+                </button>
+                <ul class="menu" id="main-menu">
                     <li><a href="#inicio">Inicio</a></li>
-                    <li><a href="#actividades">Actividades</a></li>
+                    <li><a href="#programas">Programas</a></li>
+                    <li><a href="#metodologia">Metodologia</a></li>
+                    <li><a href="#agenda">Agenda</a></li>
                     <li><a href="#instalaciones">Instalaciones</a></li>
-                    <li><a href="#horarios">Horarios</a></li>
                     <li><a href="#contacto">Contacto</a></li>
                 </ul>
-            </div>
-            <div class="footer-newsletter">
-                <h4>Suscríbete a nuestra newsletter</h4>
-                <form id="newsletter-form">
-                    <input type="email" placeholder="Tu email" required>
-                    <button type="submit"><b>Suscribirse</b></button>
-                </form>
-            </div>
+            </nav>
         </div>
-        <div class="footer-bottom">
-            <p>&copy; 2025 Club Deportivo Cima de Almería. Todos los derechos reservados.</p>
+    </header>
+
+    <main>
+        <section id="inicio" class="hero">
+            <div class="hero-backdrop"></div>
+            <div class="container hero-grid">
+                <div class="hero-copy" data-reveal>
+                    <span class="eyebrow">Deporte, naturaleza y convivencia</span>
+                    <h1>Actividades deportivas para disfrutar, aprender y crecer en grupo.</h1>
+                    <p class="hero-text">
+                        En Club Deportivo CIMA Almeria organizamos experiencias deportivas y educativas en Almeria y fuera de ella:
+                        escuela nautica, esqui y snowboard, campamentos urbanos, senderismo y propuestas activas para familias y alumnado.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="#contacto" class="btn btn-primary">Pedir informacion</a>
+                        <a href="#programas" class="btn btn-secondary">Ver actividades</a>
+                    </div>
+                    <ul class="hero-points">
+                        <li><i class="fas fa-circle-check"></i> Actividades para distintas edades</li>
+                        <li><i class="fas fa-circle-check"></i> Programas de verano y temporada</li>
+                        <li><i class="fas fa-circle-check"></i> Deporte con enfoque educativo y familiar</li>
+                    </ul>
+                </div>
+
+                <aside class="hero-panel" data-reveal>
+                    <div class="hero-card hero-card-highlight">
+                        <span class="card-label">Actividad destacada</span>
+                        <h2>Programas durante todo el año</h2>
+                        <p>Escuela nautica en verano, salidas a Sierra Nevada, campamentos urbanos y actividades de convivencia en familia.</p>
+                    </div>
+                    <div class="hero-stats">
+                        <article class="stat-card">
+                            <strong>Verano</strong>
+                            <span>campamentos y escuela nautica</span>
+                        </article>
+                        <article class="stat-card">
+                            <strong>Invierno</strong>
+                            <span>esqui y snowboard</span>
+                        </article>
+                        <article class="stat-card">
+                            <strong>Familias</strong>
+                            <span>salidas y convivencia activa</span>
+                        </article>
+                    </div>
+                </aside>
+            </div>
+        </section>
+
+        <section class="impact-strip">
+            <div class="container impact-grid">
+                <article data-reveal>
+                    <span>Campamentos</span>
+                    <p>Escuela de verano y campamento en la ciudad con deporte, juego y organizacion cuidada.</p>
+                </article>
+                <article data-reveal>
+                    <span>Nautica</span>
+                    <p>Piraguismo, paddle surf, big SUP, iniciacion al buceo y actividades en el mar.</p>
+                </article>
+                <article data-reveal>
+                    <span>Montaña</span>
+                    <p>Escuela de esqui y snowboard, rutas y jornadas para disfrutar del entorno natural.</p>
+                </article>
+            </div>
+        </section>
+
+        <section id="programas" class="section section-light">
+            <div class="container">
+                <div class="section-heading" data-reveal>
+                    <span class="eyebrow">Que hacemos</span>
+                    <h2>Una oferta real de actividades deportivas y educativas.</h2>
+                    <p>
+                        Desarrollamos actividades deportivas y formativas durante todo el año,
+                        combinando organizacion, seguridad, convivencia y experiencias adaptadas a cada programa.
+                    </p>
+                </div>
+
+                <div class="program-grid">
+                    <article class="program-card" data-reveal>
+                        <img src="./img/actividades.jpg" alt="Entrenamiento de base y tecnificacion">
+                        <div class="program-copy">
+                            <span>01</span>
+                            <h3>Escuela de verano</h3>
+                            <p>Campamento urbano con actividades deportivas, dinamicas grupales y organizacion pensada para familias.</p>
+                        </div>
+                    </article>
+                    <article class="program-card" data-reveal>
+                        <img src="./img/actividades.png" alt="Grupo de entrenamiento avanzado">
+                        <div class="program-copy">
+                            <span>02</span>
+                            <h3>Escuela nautica</h3>
+                            <p>Piraguismo, paddleboard, big SUP, paseo en barco e iniciacion al buceo en formatos por turnos.</p>
+                        </div>
+                    </article>
+                    <article class="program-card" data-reveal>
+                        <img src="./img/deportes.png" alt="Actividad deportiva en exterior">
+                        <div class="program-copy">
+                            <span>03</span>
+                            <h3>Nieve y naturaleza</h3>
+                            <p>Escuela de esqui y snowboard en Sierra Nevada y propuestas de senderismo y convivencia activa.</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="metodologia" class="section section-dark">
+            <div class="container methodology-grid">
+                <div class="methodology-copy" data-reveal>
+                    <span class="eyebrow">Como trabajamos</span>
+                    <h2>Actividad bien organizada, trato cercano y experiencias que dejan huella.</h2>
+                </div>
+
+                <div class="methodology-cards">
+                    <article class="feature-card" data-reveal>
+                        <i class="fas fa-clipboard-list"></i>
+                        <h3>Organizacion clara</h3>
+                        <p>Programas por fechas, turnos, niveles y edades para que las familias sepan exactamente que incluye cada actividad.</p>
+                    </article>
+                    <article class="feature-card" data-reveal>
+                        <i class="fas fa-heart-pulse"></i>
+                        <h3>Deporte y disfrute</h3>
+                        <p>Buscais combinar actividad fisica, aprendizaje y ocio activo en contextos motivadores.</p>
+                    </article>
+                    <article class="feature-card" data-reveal>
+                        <i class="fas fa-people-group"></i>
+                        <h3>Convivencia</h3>
+                        <p>Hay un peso claro de la experiencia grupal, el acompanamiento y la participacion de familias y alumnado.</p>
+                    </article>
+                    <article class="feature-card" data-reveal>
+                        <i class="fas fa-trophy"></i>
+                        <h3>Entornos especiales</h3>
+                        <p>Mar, nieve, ciudad y naturaleza para ofrecer actividades mas atractivas que una escuela deportiva convencional.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="agenda" class="section section-light">
+            <div class="container">
+                <div class="section-heading" data-reveal>
+                    <span class="eyebrow">Actividades principales</span>
+                    <h2>Programas pensados para cada momento del año.</h2>
+                    <p>Consulta de forma clara las principales lineas de actividad del club y el tipo de experiencia que ofrecemos en cada una.</p>
+                </div>
+
+                <div class="schedule-shell" data-reveal>
+                    <div class="horario-tabs" role="tablist" aria-label="Programas horarios">
+                        <button class="tab-button active" type="button" data-target="base">Verano</button>
+                        <button class="tab-button" type="button" data-target="tecnificacion">Nautica</button>
+                        <button class="tab-button" type="button" data-target="rendimiento">Nieve</button>
+                        <button class="tab-button" type="button" data-target="campus">Familias</button>
+                    </div>
+
+                    <div class="horario-content">
+                        <div id="base" class="tab-content active">
+                            <table class="horario-table">
+                                <thead>
+                                    <tr>
+                                        <th>Programa</th>
+                                        <th>Formato</th>
+                                        <th>Publico</th>
+                                        <th>Enfoque</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Escuela de verano</td>
+                                        <td>Campamento urbano</td>
+                                        <td>Infancia y juventud</td>
+                                        <td>Actividad fisica, convivencia y ocio educativo</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Turnos semanales</td>
+                                        <td>Inscripcion por periodos</td>
+                                        <td>Familias</td>
+                                        <td>Conciliacion con propuesta deportiva</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Colegio Compañia de Maria</td>
+                                        <td>Base operativa</td>
+                                        <td>Comunidad educativa</td>
+                                        <td>Entorno conocido y seguro</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div id="tecnificacion" class="tab-content">
+                            <table class="horario-table">
+                                <thead>
+                                    <tr>
+                                        <th>Actividad</th>
+                                        <th>Entorno</th>
+                                        <th>Contenidos</th>
+                                        <th>Objetivo</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Escuela nautica</td>
+                                        <td>Costa de Almeria</td>
+                                        <td>Piraguismo y paddle surf</td>
+                                        <td>Aprender y disfrutar del medio acuatico</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Actividades especiales</td>
+                                        <td>Mar</td>
+                                        <td>Big SUP e iniciacion al buceo</td>
+                                        <td>Ampliar la experiencia nautica</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Colaboraciones</td>
+                                        <td>Con empresas y clubes</td>
+                                        <td>Programas por turnos</td>
+                                        <td>Ofrecer una actividad mas completa</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div id="rendimiento" class="tab-content">
+                            <table class="horario-table">
+                                <thead>
+                                    <tr>
+                                        <th>Actividad</th>
+                                        <th>Lugar</th>
+                                        <th>Perfil</th>
+                                        <th>Incluye</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Escuela de esqui y snowboard</td>
+                                        <td>Sierra Nevada</td>
+                                        <td>Infantil, juvenil y adulto</td>
+                                        <td>Segun modalidad: transporte, forfait, material y clases</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Niveles por experiencia</td>
+                                        <td>Pistas</td>
+                                        <td>Desde debutantes hasta avanzados</td>
+                                        <td>Grupos adaptados al nivel</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Salidas de temporada</td>
+                                        <td>Sabados</td>
+                                        <td>Participacion por jornada</td>
+                                        <td>Flexibilidad para apuntarse por subida</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div id="campus" class="tab-content">
+                            <table class="horario-table">
+                                <thead>
+                                    <tr>
+                                        <th>Actividad</th>
+                                        <th>Formato</th>
+                                        <th>Publico</th>
+                                        <th>Valor</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Senderismo en familia</td>
+                                        <td>Salidas puntuales</td>
+                                        <td>Familias y alumnado</td>
+                                        <td>Convivencia y deporte en la naturaleza</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Actividades de convivencia</td>
+                                        <td>Jornadas organizadas</td>
+                                        <td>Comunidad del club</td>
+                                        <td>Experiencias compartidas mas alla del entrenamiento</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Entorno educativo</td>
+                                        <td>Colaboracion con colegio</td>
+                                        <td>Familias</td>
+                                        <td>Confianza, coordinacion y continuidad</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="instalaciones" class="section section-photo">
+            <div class="container">
+                <div class="section-heading section-heading-light" data-reveal>
+                    <span class="eyebrow">Experiencias y entornos</span>
+                    <h2>Un club que trabaja en ciudad, en el mar, en la nieve y en la naturaleza.</h2>
+                    <p>Diseñamos actividades en entornos variados para enriquecer la experiencia deportiva y educativa de cada participante.</p>
+                </div>
+
+                <div class="slider-container" data-reveal>
+                    <div class="slider">
+                        <article class="slide">
+                            <img src="./img/deportes.png" alt="Entrenamiento del club en instalacion exterior">
+                            <div class="slide-caption">
+                                <span>Zona principal</span>
+                                <strong>Espacios amplios para sesiones colectivas y trabajo especifico.</strong>
+                            </div>
+                        </article>
+                        <article class="slide">
+                            <img src="./img/actividades (2).png" alt="Actividad grupal del club">
+                            <div class="slide-caption">
+                                <span>Dinamica de grupo</span>
+                                <strong>Sesiones que combinan tecnica, intensidad y cohesion de equipo.</strong>
+                            </div>
+                        </article>
+                        <article class="slide">
+                            <img src="./img/kayak.png" alt="Actividad deportiva en el entorno de Almeria">
+                            <div class="slide-caption">
+                                <span>Trabajo en entorno natural</span>
+                                <strong>Experiencias complementarias para ampliar el desarrollo deportivo.</strong>
+                            </div>
+                        </article>
+                    </div>
+                    <button class="slider-arrow prev-arrow" type="button" aria-label="Imagen anterior">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="slider-arrow next-arrow" type="button" aria-label="Imagen siguiente">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <section class="section section-light">
+            <div class="container testimonials-grid">
+                <div class="section-heading align-left" data-reveal>
+                    <span class="eyebrow">Identidad del club</span>
+                    <h2>Un proyecto deportivo con vocacion educativa, cercana y experiencial.</h2>
+                </div>
+
+                <article class="testimonial-card" data-reveal>
+                    <p>
+                        Actividades deportivas, campamentos y salidas organizadas con una propuesta cuidada,
+                        pensada para que cada participante disfrute, aprenda y viva el deporte en un entorno estimulante.
+                    </p>
+                    <strong>Experiencias con sentido</strong>
+                </article>
+
+                <article class="testimonial-card" data-reveal>
+                    <p>
+                        El club apuesta por una organizacion clara, un trato cercano con las familias
+                        y actividades que combinan ocio activo, convivencia y formacion en valores.
+                    </p>
+                    <strong>Confianza para familias</strong>
+                </article>
+            </div>
+        </section>
+
+        <section id="contacto" class="section section-contact">
+            <div class="container contacto-container">
+                <div class="contacto-copy" data-reveal>
+                    <span class="eyebrow">Contacto</span>
+                    <h2>Hablemos sobre vuestra proxima actividad con CIMA.</h2>
+                    <p>
+                        Si quieres informacion sobre escuela nautica, escuela de verano, esqui y snowboard
+                        o proximas salidas, escribenos y te orientamos segun la actividad y la edad.
+                    </p>
+
+                    <div class="contact-list">
+                        <p><i class="fas fa-location-dot"></i> Almeria capital, costa y actividades fuera de la ciudad</p>
+                        <p><i class="fas fa-phone"></i> +34 950 123 456</p>
+                        <p><i class="fas fa-envelope"></i> info@cimadealmeria.es</p>
+                        <p><i class="fas fa-clock"></i> Atencion de lunes a viernes, de 09:00 a 20:00</p>
+                    </div>
+
+                    <div class="redes-sociales">
+                        <a
+                            href="https://www.instagram.com/clubcimadealmeria/"
+                            class="social-icon"
+                            aria-label="Instagram"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <!--
+                        <a href="#" class="social-icon" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="social-icon" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                        -->
+                    </div>
+                </div>
+
+                <div class="contacto-form" data-reveal>
+                    <h3>Solicita informacion</h3>
+                    <form id="contact-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="nombre">Nombre y apellidos</label>
+                                <input type="text" id="nombre" name="nombre" placeholder="Tu nombre" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Correo electronico</label>
+                                <input type="email" id="email" name="email" placeholder="tu@email.com" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="telefono">Telefono</label>
+                                <input type="tel" id="telefono" name="telefono" placeholder="+34 600 000 000">
+                            </div>
+                            <div class="form-group">
+                                <label for="programa">Actividad de interes</label>
+                                <select id="programa" name="programa">
+                                    <option value="escuela-verano">Escuela de verano</option>
+                                    <option value="escuela-nautica">Escuela nautica</option>
+                                    <option value="esqui-snow">Esqui y snowboard</option>
+                                    <option value="senderismo">Senderismo y salidas</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="mensaje">Cuentanos que necesitais</label>
+                            <textarea id="mensaje" name="mensaje" rows="5" placeholder="Edad, actividad que os interesa y fechas aproximadas..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-full">Enviar solicitud</button>
+                        <div id="form-message" class="form-message" aria-live="polite"></div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-content">
+            <div class="footer-brand">
+                <img src="./img/cima_logo.png" alt="Logo del Club Deportivo CIMA">
+                <div>
+                    <strong>Club Deportivo CIMA Almeria</strong>
+                    <p>Escuela nautica, nieve, campamentos y actividades deportivas con enfoque educativo.</p>
+                </div>
+            </div>
+
+            <div class="footer-links">
+                <a href="#programas">Programas</a>
+                <a href="#metodologia">Metodologia</a>
+                <a href="#agenda">Agenda</a>
+                <a href="#instalaciones">Instalaciones</a>
+                <a href="#contacto">Contacto</a>
+            </div>
+
+            <form id="newsletter-form" class="newsletter-form">
+                <label for="newsletter-email" class="newsletter-label">Recibe novedades del club</label>
+                <div class="newsletter-row">
+                    <input id="newsletter-email" type="email" placeholder="Tu correo electronico" required>
+                    <button type="submit">Suscribirme</button>
+                </div>
+            </form>
+        </div>
+        <div class="container footer-bottom">
+            <p>&copy; 2026 Club Deportivo CIMA Almeria. Todos los derechos reservados.</p>
         </div>
     </footer>
 
